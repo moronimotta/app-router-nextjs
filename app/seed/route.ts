@@ -5,7 +5,14 @@ import { invoices, customers, revenue, users } from '../lib/placeholder-data';
 const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
 async function seedUsers() {
-  await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+  await sql`
+    DO $$ BEGIN
+        IF NOT EXISTS (SELECT 1 FROM pg_extension WHERE extname = 'uuid-ossp') THEN
+            CREATE EXTENSION "uuid-ossp";
+        END IF;
+    END $$;
+  `;
+
   await sql`
     CREATE TABLE IF NOT EXISTS users (
       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
@@ -30,7 +37,13 @@ async function seedUsers() {
 }
 
 async function seedInvoices() {
-  await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+  await sql`
+    DO $$ BEGIN
+        IF NOT EXISTS (SELECT 1 FROM pg_extension WHERE extname = 'uuid-ossp') THEN
+            CREATE EXTENSION "uuid-ossp";
+        END IF;
+    END $$;
+  `;
 
   await sql`
     CREATE TABLE IF NOT EXISTS invoices (
@@ -56,7 +69,13 @@ async function seedInvoices() {
 }
 
 async function seedCustomers() {
-  await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+  await sql`
+    DO $$ BEGIN
+        IF NOT EXISTS (SELECT 1 FROM pg_extension WHERE extname = 'uuid-ossp') THEN
+            CREATE EXTENSION "uuid-ossp";
+        END IF;
+    END $$;
+  `;
 
   await sql`
     CREATE TABLE IF NOT EXISTS customers (

@@ -1,5 +1,28 @@
 {
-  "node": {},
+  "node": {
+    "60984cdef6b60e0c700be4ef7b0d981ff387dd763e": {
+      "workers": {
+        "app/login/page": {
+          "moduleId": "[project]/.next-internal/server/app/login/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/lib/actions.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/login/page": "action-browser"
+      }
+    },
+    "00c97eb360dd863d167f95658e80b542d3d05abf7c": {
+      "workers": {
+        "app/dashboard/(overview)/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/(overview)/page/actions.js { ACTIONS_MODULE0 => \"[project]/app/ui/dashboard/sidenav.tsx [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/dashboard/(overview)/page": "rsc"
+      }
+    }
+  },
   "edge": {},
   "encryptionKey": "1nfqmFEoRqN1hNlvIR6TCQeAiU1tgzgZhkZpBChoByg="
 }
